@@ -1,5 +1,6 @@
 package domain.member.entity;
 
+import domain.account.entity.MainAccount;
 import global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -27,6 +28,10 @@ public class User extends BaseEntity {
 
     @Column(name = "password", nullable = false)
     private String email;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mainAccountsId", referencedColumnName = "mainAccountsId")
+    private MainAccount mainAccount;
 
     @Builder
     public User(String name, String password, String email){
