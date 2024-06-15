@@ -1,6 +1,10 @@
 package org.c4marathon.assignment.domain.member.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.c4marathon.assignment.domain.account.entity.MainAccount;
+import org.c4marathon.assignment.domain.account.entity.SaveAccount;
 import org.c4marathon.assignment.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -28,9 +32,11 @@ public class User extends BaseEntity {
 	@Column(name = "email", nullable = false)
 	private String email;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "main_account_id", referencedColumnName = "main_accounts_id")
-	private MainAccount mainAccount;
+	@OneToMany(mappedBy = "user")
+	private List<MainAccount> mainAccounts = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user")
+	private List<SaveAccount> saveAccounts = new ArrayList<>();
 
 	@Builder
 	public User(String name, String password, String email) {
