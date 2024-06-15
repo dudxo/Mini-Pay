@@ -15,7 +15,7 @@ public abstract class BaseEntity {
 	@Column(name = "create_dt", nullable = false, updatable = false)
 	private LocalDateTime created;
 
-	@Column(name = "create_dt", nullable = false, updatable = false)
+	@Column(name = "update_dt", nullable = false, updatable = false)
 	private LocalDateTime updated;
 
 	@PrePersist
