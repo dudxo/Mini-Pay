@@ -1,7 +1,7 @@
-package domain.member.entity;
+package org.c4marathon.assignment.domain.member.entity;
 
-import domain.account.entity.MainAccount;
-import global.entity.BaseEntity;
+import org.c4marathon.assignment.domain.account.entity.MainAccount;
+import org.c4marathon.assignment.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
