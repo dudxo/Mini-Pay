@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-
-@Table(name = "main_aacounts")
+@Table(name = "main_accounts")
 public class MainAccount extends BaseEntity {
 
 	@Id
@@ -32,16 +31,18 @@ public class MainAccount extends BaseEntity {
 	@Column(name = "main_account_charge_limit", nullable = false)
 	private long mainAccountChargeLimit;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id", referencedColumnName = "users_id")
 	private User user;
 
 	@Builder
 	public MainAccount(String mainAccountNumber, int mainAccountPassword,
-						int mainAccountAmount, long mainAccountChargeLimit) {
+						long mainAccountAmount, long mainAccountChargeLimit, User user) {
 		this.mainAccountNumber = mainAccountNumber;
 		this.mainAccountPassword = mainAccountPassword;
 		this.mainAccountAmount = mainAccountAmount;
 		this.mainAccountChargeLimit = mainAccountChargeLimit;
+		this.user = user;
 	}
 
 }
