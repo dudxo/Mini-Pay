@@ -25,11 +25,11 @@ public class User extends BaseEntity {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@Column(name = "password", nullable = false)
+	@Column(name = "email", nullable = false)
 	private String email;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "mainAccountsId", referencedColumnName = "mainAccountsId")
+	@JoinColumn(name = "main_account_id", referencedColumnName = "main_accounts_id")
 	private MainAccount mainAccount;
 
 	@Builder
