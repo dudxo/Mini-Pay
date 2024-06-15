@@ -31,7 +31,7 @@ public class MainAccount extends BaseEntity {
 	@Column(name = "main_account_charge_limit", nullable = false)
 	private long mainAccountChargeLimit;
 
-	@OneToOne(mappedBy = "mainAccount")
+	@OneToOne(fetch = FetchType.LAZY)
 	private User user;
 
 	@Builder
