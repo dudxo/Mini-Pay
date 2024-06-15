@@ -31,7 +31,7 @@ public class SaveAccount extends BaseEntity {
 	private int saveAccountPassword;
 
 	@Column(name = "save_accounts_amount", nullable = false)
-	private int saveAccountAmount;
+	private long saveAccountAmount;
 
 	@Builder
 	public SaveAccount(String saveAccountNumber, int saveAccountPassword, int saveAccountAmount){

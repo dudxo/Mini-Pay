@@ -11,13 +11,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+
 @Table(name = "main_aacounts")
 public class MainAccount extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "main_accounts_id", nullable = false)
-	private Long mainAccountsId;
+	private Long id;
 
 	@Column(name = "main_account_number", nullable = false, updatable = false)
 	private String mainAccountNumber;
@@ -26,7 +27,7 @@ public class MainAccount extends BaseEntity {
 	private int mainAccountPassword;
 
 	@Column(name = "main_account_amount", nullable = false)
-	private int mainAccountAmount;
+	private long mainAccountAmount;
 
 	@Column(name = "main_account_charge_limit", nullable = false)
 	private long mainAccountChargeLimit;
